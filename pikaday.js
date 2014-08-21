@@ -382,7 +382,7 @@
         var self = this,
             opts = self.config(options);
 
-        self._onMouseDown = function(e)
+        self._onClick = function(e)
         {
             if (!self._v) {
                 return;
@@ -508,7 +508,7 @@
         self.el = document.createElement('div');
         self.el.className = 'pika-single' + (opts.isRTL ? ' is-rtl' : '');
 
-        addEvent(self.el, 'mousedown', self._onMouseDown, true);
+        addEvent(self.el, 'click', self._onClick, true);
         addEvent(self.el, 'change', self._onChange);
 
         if (opts.field) {
@@ -975,7 +975,7 @@
         destroy: function()
         {
             this.hide();
-            removeEvent(this.el, 'mousedown', this._onMouseDown, true);
+            removeEvent(this.el, 'click', this._onClick, true);
             removeEvent(this.el, 'change', this._onChange);
             if (this._o.field) {
                 removeEvent(this._o.field, 'change', this._onInputChange);
